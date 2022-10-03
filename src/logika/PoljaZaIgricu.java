@@ -8,11 +8,6 @@ import java.util.Random;
 
 import konzola.Igrica;
 
-/**
- * 
- * @author Kenan
- *
- */
 public class PoljaZaIgricu {
 
 	private final int brojElemenata = Igrica.KOLONE * Igrica.REDOVI;
@@ -26,11 +21,6 @@ public class PoljaZaIgricu {
 	private int brojacPiratskihBrodova = 0;
 	private List<Integer> nizPolja;
 
-	/**
-	 * Konstruktor
-	 * 
-	 * @param igrica
-	 */
 	public PoljaZaIgricu(Igrica igrica) {
 		this.igrica = igrica;
 		this.tezina = igrica.dajTezinu();
@@ -50,20 +40,10 @@ public class PoljaZaIgricu {
 
 	}
 
-	/**
-	 * Metoda za dohvaćanje matrice polja.
-	 * 
-	 * @return
-	 */
 	public Polje[][] dajMatricuPolja() {
 		return matricaPolja;
 	}
 
-	/**
-	 * Javna metoda koja daje koordinate igračevog broda unutar matrice polja.
-	 * 
-	 * @return
-	 */
 	public Point dajLokacijuIgraca() {
 		int x = 0, y = 0;
 		for (int i = 1; i < Igrica.REDOVI - 1; i++) {
@@ -78,11 +58,6 @@ public class PoljaZaIgricu {
 		return new Point(x, y);
 	}
 
-	/**
-	 * Javna metoda koja pronalazi polje na kojem se nalazi igrač i vrati ga.
-	 * 
-	 * @return
-	 */
 	public Polje dajIgraca() {
 		for (int i = 0; i < matricaPolja.length; i++) {
 			for (int j = 0; j < matricaPolja[0].length; j++) {
@@ -93,14 +68,6 @@ public class PoljaZaIgricu {
 		return null;
 	}
 
-	/**
-	 * Javna metoda koja pronalazi i vraća polje na osnovu njegove x i y koordinate
-	 * u matrici polja.
-	 * 
-	 * @param x
-	 * @param y
-	 * @return
-	 */
 	public Polje dajPolje(int x, int y) {
 		for (int i = 0; i < matricaPolja.length; i++) {
 			for (int j = 0; j < matricaPolja[0].length; j++) {
@@ -111,13 +78,7 @@ public class PoljaZaIgricu {
 		return null;
 	}
 
-	/**
-	 * Javna metoda koja pronalazi i vraća polje iratskog broda na osnovu broja
-	 * piratskog broja (svaki ima jedinstven broj u toku igrice).
-	 * 
-	 * @param brojPiratskogBroda
-	 * @return
-	 */
+	
 	private Polje dajPiratskiBrod(int brojPiratskogBroda) {
 		for (int i = 0; i < matricaPolja.length; i++) {
 			for (int j = 0; j < matricaPolja[0].length; j++) {
@@ -128,13 +89,6 @@ public class PoljaZaIgricu {
 		return null;
 	}
 
-	/**
-	 * Metoda koja računa najkraću udaljenost između piratskog i igračevog broda i
-	 * vraća je.
-	 * 
-	 * @param brojPiratskogBroda
-	 * @return
-	 */
 	public ArrayList<Point> putanjaPiratskiBrodDoIgrac(int brojPiratskogBroda) {
 		Polje pirat = dajPiratskiBrod(brojPiratskogBroda);
 		Polje igrac = dajIgraca();
@@ -143,11 +97,6 @@ public class PoljaZaIgricu {
 		return Udaljenost.najkracaUdaljenost(matricaPolja, start, cilj, brojPiratskogBroda);
 	}
 
-	/**
-	 * Metoda koja vraća sva polja piratskih brodova koja se nalaze u matrici polja.
-	 * 
-	 * @return
-	 */
 	public Polje[] dajPiratskeBrodove() {
 		Polje[] pirati = new Polje[brojBrodova];
 		int brojac = 0;
@@ -160,12 +109,6 @@ public class PoljaZaIgricu {
 		return pirati;
 	}
 
-	/**
-	 * Privatna metoda koja na osnovu niza polja generiše matricu polja, koja
-	 * predstavlja reprezentaciju same igrice
-	 * 
-	 * @return
-	 */
 	private void generisiMatricuPolja() {
 
 		matricaPolja = new Polje[Igrica.REDOVI][Igrica.KOLONE];
@@ -178,11 +121,6 @@ public class PoljaZaIgricu {
 		}
 	}
 
-	/**
-	 * Pomoćna metoda za inicijalizaciju niza polja i umetanje slobodnih i pozicija
-	 * vrtloga, kao i poziciju igračevog broda. Ista poziva dodatne 2 metode koje
-	 * umeću pozicije za otoke i neprijateljske brodove.
-	 */
 	private void generisiNiz() {
 
 		zauzetaPolja = new ArrayList<Integer>();
@@ -215,10 +153,6 @@ public class PoljaZaIgricu {
 		generisiPozicijeBrodova();
 	}
 
-	/**
-	 * Pomoćna metoda koja nam u niz polja dodaje pozicije za otoke na nasumičan
-	 * način. Funkcija uzima u obzir da su pojedina polja već zauzeta.
-	 */
 	private void generisiPozicijeOtoka() {
 		int brojacOtoka = 0;
 		Random rand = new Random();
@@ -232,10 +166,6 @@ public class PoljaZaIgricu {
 		}
 	}
 
-	/**
-	 * Pomoćna metoda koja nam u niz polja dodaje pozicije za protivničke brodove na
-	 * nasumičan način. Funkcija uzima u obzir da su pojedina polja već zauzeta.
-	 */
 	private void generisiPozicijeBrodova() {
 		int brojacBrodova = 0;
 		Random rand = new Random();
@@ -249,14 +179,6 @@ public class PoljaZaIgricu {
 		}
 	}
 
-	/**
-	 * Metoda koja nam instancira i vrati objekat klase Polje.
-	 * 
-	 * @param tipPolja
-	 * @param i
-	 * @param j
-	 * @return
-	 */
 	private Polje dajOdgovarajucePolje(int tipPolja, int i, int j) {
 		Polje polje;
 		switch (tipPolja) {
@@ -281,15 +203,6 @@ public class PoljaZaIgricu {
 		return polje;
 	}
 
-	/**
-	 * Pomoćna metoda koja prima x i y koordinatu kliknutog polja. Ista provjerava
-	 * da li je igrač upao u vrtlog i izbaci ga na nasumičnu lokaciju ako jeste, a
-	 * ako nije mijenja njegovu lokaciju sa poljem na koje je kliknuo, ukoliko se
-	 * radi o praznpm slobodnom polju.
-	 * 
-	 * @param x
-	 * @param y
-	 */
 	public void primiKlik(int x, int y) {
 		Polje igrac = dajIgraca();
 
@@ -322,13 +235,6 @@ public class PoljaZaIgricu {
 		}
 	}
 
-	/**
-	 * Metoda koja pronalazi i vraća vtrlog na osnovu njegovog broja (1, 2, 3 ili
-	 * 4).
-	 * 
-	 * @param brojVrtloga
-	 * @return
-	 */
 	private Polje dajTrazeniVrtlog(int brojVrtloga) {
 		for (int i = 0; i < matricaPolja.length; i++) {
 			for (int j = 0; j < matricaPolja[0].length; j++) {
@@ -339,13 +245,6 @@ public class PoljaZaIgricu {
 		return null;
 	}
 
-	/**
-	 * Pomoćna metoda koja nalazi slobodno polje pored vrtloga u koje igrač može
-	 * ući.
-	 * 
-	 * @param vrtlog
-	 * @return
-	 */
 	private Polje nadjiSlobodnoPoljeDoVrtloga(Polje vrtlog) {
 		for (int i = 0; i < vrtlog.dajSusjednaPolja().size(); i++) {
 			Point susjedKoordinate = vrtlog.dajSusjednaPolja().get(i);
@@ -357,13 +256,6 @@ public class PoljaZaIgricu {
 		return null;
 	}
 
-	/**
-	 * Pomoćna metoda koja mijenja pozicije poljima koji su joj proslijeđeni kao
-	 * parametri.
-	 * 
-	 * @param polje1
-	 * @param polje2
-	 */
 	private void zamjeniLokacijePoljima(Polje polje1, Polje polje2) {
 
 		int tempX = polje1.dajX(), tempY = polje1.dajY();
@@ -385,12 +277,6 @@ public class PoljaZaIgricu {
 		proslijediIzmjeneGamePanelu();
 	}
 
-	/**
-	 * Javna metoda koja piratski brod pomjeri za jedno polje bliže igračevom brodu.
-	 * 
-	 * @param putanje
-	 * @param piratskiBrodovi
-	 */
 	public void pomjeriPiratskeBrodove(ArrayList<ArrayList<Point>> putanje, Polje[] piratskiBrodovi) {
 		for (int i = 0; i < piratskiBrodovi.length; i++) {
 			Point lokacija = putanje.get(i).get(0);

@@ -22,13 +22,6 @@ public class Slike {
 	public static final String STRIJELA_SE = "images\\arrow-SE.png";
 	public static final String STRIJELA_SW = "images\\arrow-SW.png";
 
-	/**
-	 * Javna statična metoda za vraćanje slike koja će se iscrtavati na panelu
-	 * igrice. Tip slike se određuje na osnovu proslijeđenog parametra.
-	 * 
-	 * @param tip
-	 * @return
-	 */
 	public static Image dajSliku(int tip) {
 		Image slika = null;
 		String lokacija = null;
@@ -57,14 +50,6 @@ public class Slike {
 		return slika;
 	}
 
-	/**
-	 * Javna statična metoda za vraćanje slike strijelice koja se prikazuje na samoj
-	 * igrici, rezultujuća slika se određuje na osnovu proslijeđene geografske
-	 * orijentacije (S, W, N, E, SE, SW, NW, NE).
-	 * 
-	 * @param orijentacija
-	 * @return
-	 */
 	public static Image dajStrijelu(String orijentacija) {
 		Image slika = null;
 		String lokacija = null;

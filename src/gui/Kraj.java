@@ -11,21 +11,10 @@ import javax.swing.JLabel;
 
 import konzola.Igrica;
 
-/**
- * 
- * @author Kenan
- *
- */
 public class Kraj extends JFrame {
 
 	Igrica igrica;
 
-	/**
-	 * Konstruktor
-	 * 
-	 * @param poruka
-	 * @param igrica
-	 */
 	public Kraj(String poruka, Igrica igrica) {
 		super("Kraj igre");
 		this.igrica = igrica;

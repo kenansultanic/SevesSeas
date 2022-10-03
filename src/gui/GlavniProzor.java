@@ -9,22 +9,12 @@ import konzola.Igrica;
 import logika.PoljaZaIgricu;
 import logika.Polje;
 
-/**
- * 
- * @author Kenan
- *
- */
 public class GlavniProzor extends JFrame {
 
 	private GamePanel gamePanel;
 	private KontrolniPanel kontrolniPanel;
 	private Igrica igrica;
 
-	/**
-	 * Konstruktor
-	 * 
-	 * @param igrica
-	 */
 	public GlavniProzor(Igrica igrica) {
 		super("Seven Seas");
 		this.igrica = igrica;
@@ -55,56 +45,26 @@ public class GlavniProzor extends JFrame {
 		setVisible(true);
 	}
 
-	/**
-	 * Get metoda za tezinu
-	 * 
-	 * @return
-	 */
 	public int dajTezinu() {
 		return igrica.dajTezinu();
 	}
 
-	/**
-	 * Get metoda za level
-	 * 
-	 * @return
-	 */
 	public int dajLevel() {
 		return igrica.dajLevel();
 	}
 
-	/**
-	 * Pomoćna metoda koja prima informacije o kliknutom polju od game panela i iste
-	 * proslijedi glavnom prozoru.
-	 * 
-	 * @param x
-	 * @param y
-	 */
 	public void proslijediKlik(int x, int y) {
 		igrica.proslijediKlik(x, y);
 	}
 
-	/**
-	 * Pomoćna metoda koja proslijeđuje izmjenjenu matricu polja game panelu
-	 * 
-	 * @param matricaPolja
-	 */
 	public void proslijediIzmjeneMatricePolja(Polje[][] matricaPolja) {
 		gamePanel.izmjeniMatricuPolja(matricaPolja);
 	}
 
-	/**
-	 * Pomoćna metoda koja provjerava da li je igrač na potezu
-	 * 
-	 * @return
-	 */
 	public boolean jeLiIgracNaPotezu() {
 		return igrica.jeLiIgracNaPotezu();
 	}
 
-	/**
-	 * Pomoćna metoda koja postavlja igrača na potez
-	 */
 	public void postaviIgracNaPotezu() {
 		gamePanel.postaviIgracNaPotezu();
 	}

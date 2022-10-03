@@ -26,11 +26,6 @@ import logika.Slike;
 import logika.Strijela;
 import logika.TipoviPolja;
 
-/**
- * 
- * @author Kenan
- *
- */
 public class GamePanel extends JPanel {
 
 	private GlavniProzor glavniProzor;
@@ -44,12 +39,6 @@ public class GamePanel extends JPanel {
 	private Strijela strijela;
 	private int stranicaKvadrata = 50;
 
-	/**
-	 * Konstruktor
-	 * 
-	 * @param glavniProzor
-	 * @param poljaZaIgricu
-	 */
 	public GamePanel(GlavniProzor glavniProzor, PoljaZaIgricu poljaZaIgricu) {
 
 		this.glavniProzor = glavniProzor;
@@ -123,16 +112,6 @@ public class GamePanel extends JPanel {
 		}
 	}
 
-	/**
-	 * Privatna metoda koja na osnovu lokacije broda igrača i tačke na ploči odredi
-	 * da li je potrebno prikazivanje strijele za panelu i ako da, koje
-	 * orijentacije.
-	 * 
-	 * @param lokacijaIgraca
-	 * @param x
-	 * @param y
-	 * @return
-	 */
 	private Strijela dajTipStrijele(Point lokacijaIgraca, int x, int y, ArrayList<Point> igraceviSusjedi) {
 		double igracPoX = (lokacijaIgraca.getX() - 1) * stranicaKvadrata;
 		double igracPoY = (lokacijaIgraca.getY() - 1) * stranicaKvadrata;
@@ -189,16 +168,6 @@ public class GamePanel extends JPanel {
 		return praznaStrijela;
 	}
 
-	/**
-	 * Pomoćna metoda koja provjerava da li se proslijeđena tačka sa x i y
-	 * koordinatama nalazi u kvadratu ili ne.
-	 * 
-	 * @param gornjeLijevoX
-	 * @param gornjeLijevoY
-	 * @param x
-	 * @param y
-	 * @return
-	 */
 	private boolean jeLiTackaUKvadratu(double gornjeLijevoX, double gornjeLijevoY, double x, double y) {
 		double donjeDesnoX = gornjeLijevoX + stranicaKvadrata;
 		double donjeDesnoY = gornjeLijevoY + stranicaKvadrata;
@@ -208,25 +177,12 @@ public class GamePanel extends JPanel {
 		return false;
 	}
 
-	/**
-	 * Pomoćna funkcija za računanje koordinata kliknutog polja u matrici polja.
-	 * 
-	 * @param i
-	 * @param j
-	 * @return
-	 */
 	private Point dajPolozajKliknutogPolja(int i, int j) {
 		int x = i - (i % stranicaKvadrata);
 		int y = j - (j % stranicaKvadrata);
 		return new Point((x / stranicaKvadrata), (y / stranicaKvadrata));
 	}
 
-	/**
-	 * Privatna metoda koja glavnom prozoru proslijeđuje lokaciju kliknutog
-	 * kvadratića.
-	 * 
-	 * @param polozaj
-	 */
 	private void proslijediKlik(Point polozaj) {
 		if (igracNaPotezu) {
 			glavniProzor.proslijediKlik((int) polozaj.getX(), (int) polozaj.getY());
@@ -234,11 +190,6 @@ public class GamePanel extends JPanel {
 		}
 	}
 
-	/**
-	 * Javna metoda koja zamjenjuje mjesta dva polja u matrici polja
-	 * 
-	 * @param matricaPolja
-	 */
 	public void izmjeniMatricuPolja(Polje[][] matricaPolja) {
 		this.matricaPolja = matricaPolja;
 		igrac = poljaZaIgricu.dajIgraca();
@@ -246,18 +197,10 @@ public class GamePanel extends JPanel {
 		repaint();
 	}
 
-	/**
-	 * Pomoćna metoda koja provjerava da li je igrač na potezu
-	 * 
-	 * @return
-	 */
 	private boolean jeLiIgracNaPotezu() {
 		return glavniProzor.jeLiIgracNaPotezu();
 	}
 
-	/**
-	 * Javna metoda koja postavlja igrača na potez
-	 */
 	public void postaviIgracNaPotezu() {
 		igracNaPotezu = true;
 	}

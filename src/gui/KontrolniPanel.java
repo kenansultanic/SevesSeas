@@ -9,11 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- * 
- * @author Kenan
- *
- */
 public class KontrolniPanel extends JPanel {
 	
 	JButton novaIgra;
@@ -23,9 +18,6 @@ public class KontrolniPanel extends JPanel {
 	JTextField levelText;
 	JTextField tezinaText;
 
-	/**
-	 * Konstruktor
-	 */
 	public KontrolniPanel() {
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();

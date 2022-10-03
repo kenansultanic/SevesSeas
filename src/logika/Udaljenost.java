@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 
-/**
- * 
- * @author Kenan
- *
- */
 public class Udaljenost {
 
 	private static class Celija {
@@ -30,17 +25,7 @@ public class Udaljenost {
 		}
 	}
 
-	/**
-	 * Statična metoda koja za proslijeđenu matricu polja, piratski brod i
-	 * koordinate igrača računa najkraću udaljenost između pirata i igrača. Metoda
-	 * implementira BFS algoritam i radi u vremenu O(n^2).
-	 * 
-	 * @param matricaPolja
-	 * @param start
-	 * @param end
-	 * @param piratRB
-	 * @return
-	 */
+
 	public static ArrayList<Point> najkracaUdaljenost(Polje[][] matricaPolja, int[] start, int[] end, int piratRB) {
 		int sx = start[0], sy = start[1];
 		int dx = end[0], dy = end[1];
@@ -98,15 +83,7 @@ public class Udaljenost {
 		}
 	}
 
-	/**
-	 * Pomoćna statična metoda koja ažurira status ćelije i označava je posjećenom.
-	 * 
-	 * @param celije
-	 * @param queue
-	 * @param x
-	 * @param y
-	 * @param roditelj
-	 */
+	
 	private static void posjeti(Celija[][] celije, LinkedList<Celija> queue, int x, int y, Celija roditelj) {
 		if (x < 0 || x >= celije.length || y < 0 || y >= celije[0].length || celije[x][y] == null) {
 			return;
